@@ -24,13 +24,13 @@ if (isset($_POST ["op"]))
 	if ($op=="gravadora")
 		$consulta=mysqli_query($bd,"select * from musicas where gravadora='$expressao'");
 	if ($op=="compositor")
-		$consulta=mysqli_query($bd,"select * from musicas where compositor like '%$expressao%'");
+		$consulta=mysqli_query($bd,"select * from musicas where compositor = '%$expressao%'");
 	if ($op=="letra")
-		$consulta=mysqli_query($bd,"select * from musicas where letra >= '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where letra = '$expressao'");	
 	if ($op=="caminho_arquivo")
-		$consulta=mysqli_query($bd,"select * from musicas where caminho_arquivo >= '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where caminho_arquivo = '$expressao'");	
 	if ($op=="data_cadastro")
-		$consulta=mysqli_query($bd,"select * from musicas where data_cadastro >= '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where data_cadastro = '$expressao'");	
 	} else
 {
 	echo "volte a página e escolha o campo que fará a pesquisa";
@@ -43,7 +43,7 @@ if ($reg==0)
 	exit;
 }
 while ($reg!=0)
-{
+{	$id = $reg["id"];
 	$titulo = $reg["titulo"];
 	$artista = $reg["artista"];
 	$album = $reg["album"];
@@ -56,7 +56,8 @@ while ($reg!=0)
     $caminho_arquivo = $reg["caminho_arquivo"];
 	$data_cadastro = $reg["data_cadastro"];
 
-	echo   "titulo: $titulo<br>
+	echo   "id: $id<br>
+			titulo: $titulo<br>
 			artista: $artista<br>
 			album: $album<br>
 			genero: $genero<br>
@@ -70,9 +71,10 @@ while ($reg!=0)
 			
 			
 	?>
-	<a href="excluir.php?pl=<?php echo $placa;?>" onclick = "return confirm ('Exclui o registro?');">Excluir</a>
+	<a href="excluir.php?id=<?php echo $id;?>" onclick = "return confirm ('Exclui o registro?');">Excluir</a>
 	
-	<a href="alterar.php?pl=<?php echo $placa;?>">Alterar</a><hr>
+	<a href="alterar.php?id=<?php echo $id;?>">Alterar</a><hr>
+	
 	<?php
 	$reg = mysqli_fetch_array($consulta);		
 } 

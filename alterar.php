@@ -5,12 +5,12 @@
 </HEAD>
 <?php
 
-$titulo=trim($_GET["titulo"]);
+$id=trim($_GET["id"]);
 
 $bd=mysqli_connect("localhost","root","","repertorio") or die ("erro!");
 
 
-$sql="select * from musicas where titulo = '$titulo'"; //consulta sql
+$sql="select * from musicas where id = '$id'"; //consulta sql
 
 $consulta=mysqli_query($bd, $sql); //faz a consulta de todos os registros
 $reg=mysqli_fetch_array($consulta); // cria uma matriz com todos os campos e registros
@@ -21,7 +21,7 @@ if ($reg==0)
 	 exit;
 }
 else
-{
+{	$id = $reg["id"];
 	$titulo = $reg["titulo"];
 	$artista = $reg["artista"];
 	$album = $reg["album"];
@@ -36,9 +36,10 @@ else
 }
 ?>
 <center><h2>Alterar Registros</center>
-	<?php echo "Placa: $placa<br><br>" ?>
+	<?php echo "id: $id <br><br>" ?>
 	<form method="POST" action="regrava.php">
-		<p> titulo:			<input type="hidden" size="10" name="titulo" 		value ='<?php echo "$titulo"; ?>'>
+		<p> id:			<input type="hidden" size="10" name="id" 		value ='<?php echo "$id"; ?>'>
+		<p> titulo:			<input type="text" size="10" name="titulo" 		value ='<?php echo "$titulo"; ?>'>
 		<p>artista: 	<input type="text" size="40"   name="artista" 		value ='<?php echo "$artista"; ?>'></p>
 		<p>album: 		<input type="text" size="50"   name="album" 		value ='<?php echo "$album"; ?>'></p>
 		<p>genero: 		<input type="text" size="20"   name="genero" 			value ='<?php echo "$genero"; ?>'></p>

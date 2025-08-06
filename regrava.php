@@ -5,6 +5,7 @@
 <body>
 
 <?php
+$id=			$_POST["id"];
 $titulo=			$_POST["titulo"];
 $artista=			$_POST["artista"];
 $album=			$_POST["album"];
@@ -18,10 +19,10 @@ $caminho_arquivo=			$_POST["caminho_arquivo"];
 $data_cadastro=	$_POST["data_cadastro"];
 
 
-$bd = mysqli_connect("localhost","root","","detran") OR DIE ("Erro ao conectar!");
+$bd = mysqli_connect("localhost","root","","repertorio") OR DIE ("Erro ao conectar!");
 //conecta com o servidor mysql
 
-$es=mysqli_query($bd,"update musicas set veiculo='$titulo', 
+$es=mysqli_query($bd,"update musicas set titulo='$titulo', 
 										  artista='$artista', 
 										  album='$album', 
 										  genero='$genero', 
@@ -35,7 +36,8 @@ $es=mysqli_query($bd,"update musicas set veiculo='$titulo',
 										  where id ='$id '");
 if ($es==1)
 {
-    echo "titulo: $titulo<br>
+    echo "	id: $id <br>
+			titulo: $titulo<br>
 		  artista: $artista<br>
 		   album: $album<br>
 		    genero: $genero<br>
