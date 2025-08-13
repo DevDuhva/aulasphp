@@ -1,7 +1,7 @@
 <HTML>
 <BODY>
 <?php
-$expressao=		$_POST["expressao"];
+$id=		$_POST["id"];
 $bd=mysqli_connect("localhost","root","","repertorio") or die ("erro!");
 
 
@@ -10,27 +10,27 @@ if (isset($_POST ["op"]))
 	$op = $_POST ["op"];
 	echo $op;
 	if ($op=="titulo")
-		$consulta=mysqli_query($bd,"select * from musicas where titulo='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where titulo='$id'");
 	if ($op=="artista")
-		$consulta=mysqli_query($bd,"select * from musicas where artista='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where artista='$id'");
 	if ($op=="album")
-		$consulta=mysqli_query($bd,"select * from musicas where album='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where album='$id'");
 	if ($op=="genero")
-		$consulta=mysqli_query($bd,"select * from musicas where genero='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where genero='$id'");
 	if ($op=="ano_lancamento")
-		$consulta=mysqli_query($bd,"select * from musicas where ano_lancamento='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where ano_lancamento='$id'");
 	if ($op=="duracao_segundos")
-		$consulta=mysqli_query($bd,"select * from musicas where duracao_segundos='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where duracao_segundos='$id'");
 	if ($op=="gravadora")
-		$consulta=mysqli_query($bd,"select * from musicas where gravadora='$expressao'");
+		$consulta=mysqli_query($bd,"select * from musicas where gravadora='$id'");
 	if ($op=="compositor")
-		$consulta=mysqli_query($bd,"select * from musicas where compositor = '%$expressao%'");
+		$consulta=mysqli_query($bd,"select * from musicas where compositor = '$id'");
 	if ($op=="letra")
-		$consulta=mysqli_query($bd,"select * from musicas where letra = '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where letra = '$id'");	
 	if ($op=="caminho_arquivo")
-		$consulta=mysqli_query($bd,"select * from musicas where caminho_arquivo = '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where caminho_arquivo = '$id'");	
 	if ($op=="data_cadastro")
-		$consulta=mysqli_query($bd,"select * from musicas where data_cadastro = '$expressao'");	
+		$consulta=mysqli_query($bd,"select * from musicas where data_cadastro = '$id'");	
 	} else
 {
 	echo "volte a página e escolha o campo que fará a pesquisa";

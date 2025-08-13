@@ -32,7 +32,7 @@ $es=mysqli_query($bd,"update musicas set titulo='$titulo',
 										  compositor='$compositor', 
 										  letra='$letra',
 										   caminho_arquivo='$caminho_arquivo',
-										    data_cadastro='$data_cadastro',
+										    data_cadastro='$data_cadastro'
 										  where id ='$id '");
 if ($es==1)
 {
@@ -47,8 +47,8 @@ if ($es==1)
 		  compositor: $compositor<br>
 		  letra: $letra<br>
 		  Valor: $Valor<br>
-		  Valor: $caminho_arquivo<br>
-		  Valor: $data_cadastro<br>
+		  caminho_arquivo: $caminho_arquivo<br>
+		  data_cadastro: $data_cadastro<br>
 		  
 		  <hr>";
 	echo "Obrigado por participar - Registro Alterado. <br><br>  ";

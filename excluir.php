@@ -1,11 +1,11 @@
 <HTML>
 <BODY>
 <?php
-$titulo=		$_GET["titulo"];
+$id=		$_GET["id"];
 $bd=mysqli_connect("localhost","root","","repertorio") or die ("erro!");
 //mysql_select_db("detran");
 
-$excluiu=mysqli_query($bd,"delete from veiculos where musicas = '$titulo'");
+$excluiu=mysqli_query($bd,"delete from musicas where id = '$id'");
 
 if ($excluiu == 1)
 		echo "O registro foi excluído!!!";
