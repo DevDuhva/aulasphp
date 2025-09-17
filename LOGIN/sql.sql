@@ -9,4 +9,22 @@ CREATE TABLE usuarios (
     foto VARCHAR(30)
 );
 INSERT INTO usuarios (nome, email, fone, senha) VALUES
-('Zé Roela', 'teste@empresa.com', '11987654321', '$2y$10$.H1ATtve.3Ga9BT6ktZX1O0UqVAUzNH/cCWnZ6l6KekEK.JycAgvO') -- senha eu123;
+('Zé Roela', 'teste@empresa.com', '11987654321', '$2y$10$.H1ATtve.3Ga9BT6ktZX1O0UqVAUzNH/cCWnZ6l6KekEK.JycAgvO'); -- senha eu123;
+
+
+CREATE DATABASE estoque;
+USE estoque;
+
+CREATE TABLE produtos (
+  id_produto INT AUTO_INCREMENT PRIMARY KEY,
+  produto VARCHAR(50),
+  quantidade INT(3),
+  preco_unitario DOUBLE(6,2),
+  tipo VARCHAR(30)
+);
+
+INSERT INTO produtos (produto, quantidade, preco_unitario, tipo) VALUES
+('Camiseta Básica', 10, 49.90, 'Moda'),
+('Boné Esportivo', 5, 39.90, 'Acessórios'),
+('Mouse Gamer', 8, 120.00, 'Informática'),
+('Bola de Futebol', 4, 89.90, 'Esporte');
