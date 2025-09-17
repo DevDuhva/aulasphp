@@ -59,8 +59,8 @@ $resultado = mysqli_query($conexao, $sql);
     <div class="menu">
         <a href="dashboard.php">Todos</a>
         <a href="dashboard.php?tipo=Moda">Moda</a>
-        <a href="dashboard.php?tipo=Acessorios">Acessórios</a>
-        <a href="dashboard.php?tipo=Informatica">Informática</a>
+        <a href="dashboard.php?tipo=Acessórios">Acessórios</a>
+        <a href="dashboard.php?tipo=Informática">Informática</a>
         <a href="dashboard.php?tipo=Esporte">Artigos Esportivos</a>
     </div>
 
