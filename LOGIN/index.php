@@ -1,48 +1,59 @@
-<?php
-session_start(); // Inicia a sessão
-
-// Se o usuário já estiver logado, redireciona para o dashboard
-if (isset($_SESSION['usuario_id'])) {
-    header("Location: dashboard.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
-        .login-container { background-color: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .login-container h2 { margin-bottom: 20px; }
-        .login-container input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        .login-container button { width: 100%; padding: 10px; border: none; border-radius: 4px; background-color: #007bff; color: white; cursor: pointer; }
-        .login-container .error { color: red; margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>Acessar o Sistema</h2>
-        <?php
-        // Exibe mensagem de erro se houver
-        if (isset($_SESSION['login_error'])) {
-            echo '<p class="error">' . $_SESSION['login_error'] . '</p>';
-            unset($_SESSION['login_error']); // Limpa a mensagem após exibir
-        }
-        ?>
-        <form action="login.php" method="POST">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+  <h1>Cadastro de Usuário</h1>
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+  <form action="cadastrar.php" method="POST">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Digite aqui seu email" required>
 
-            <button type="submit">Entrar</button>
-        </form>
+    <label>Usuário</label>
+    <input type="text" name="usuario" placeholder="Digite seu nome de usuário" minlength="6" maxlength="20" required>
+
+    <label>Primeiro nome</label>
+    <input type="text" name="primeiro_nome" placeholder="Digite seu primeiro nome" minlength="2" maxlength="30" required>
+
+    <label>Sobrenome</label>
+    <input type="text" name="sobrenome" placeholder="Digite seu sobrenome" minlength="2" maxlength="40" required>
+
+    <label>Aniversário</label>
+    <div style="display: flex; gap: 5px;">
+      <select name="dia" required>
+        <option value="">Dia</option>
+        <!-- Dias 1 a 31 -->
+        <?php for ($i=1; $i<=31; $i++) echo "<option value='$i'>$i</option>"; ?>
+      </select>
+
+      <select name="mes" required>
+        <option value="">Mês</option>
+        <!-- Meses 1 a 12 -->
+        <?php for ($i=1; $i<=12; $i++) echo "<option value='$i'>$i</option>"; ?>
+      </select>
+
+      <select name="ano" required>
+        <option value="">Ano</option>
+        <!-- Anos 1980 a 2010 -->
+        <?php for ($i=1980; $i<=2010; $i++) echo "<option value='$i'>$i</option>"; ?>
+      </select>
     </div>
+
+    <label>Sexo</label>
+    <select name="sexo" required>
+      <option value="">Selecione</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Feminino">Feminino</option>
+      <option value="Outro">Outro</option>
+    </select>
+
+    <button type="submit">Cadastrar</button>
+	<a href="consultar.php" class="button-link">Consultar</a>
+  </form>
 
 </body>
 </html>
