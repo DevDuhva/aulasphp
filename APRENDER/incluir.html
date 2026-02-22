@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form method ="POST" action ="cadastrar.php">
+    
+        Nome: <input type="text" size="40" name="Nome" required> <br> <br>
+        CPF:  <input type="text" size="40"  name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite no formato 000.000.000-00" required > <br><br>
+        Telefone: <input type="tel" size="40" name="Telefone" placeholder="(99) 99999-9999" required> <br> <br>
+        email:  <input type="email" size="40" name="Email" placeholder="eu@gmail" required> <br> <br>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>

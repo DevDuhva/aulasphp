@@ -24,7 +24,7 @@ CREATE TABLE produtos (
 );
 
 INSERT INTO produtos (produto, quantidade, preco_unitario, tipo) VALUES
-('Camiseta Basica', 10, 49.90, 'Moda'),
-('Bone Esportivo', 5, 39.90, 'Acessorios'),
-('Mouse Gamer', 8, 120.00, 'Informatica'),
+('Camiseta Básica', 10, 49.90, 'Moda'),
+('Boné Esportivo', 5, 39.90, 'Acessórios'),
+('Mouse Gamer', 8, 120.00, 'Informática'),
 ('Bola de Futebol', 4, 89.90, 'Esporte');
