@@ -32,6 +32,7 @@ if ($result) {
 
 echo "<br><a href='incluir.html'>Voltar</a>";
 
+echo "<br><a href='consultar.html'>Consultar</a>";
 ?>
 
 
@@ -43,4 +44,3 @@ echo "<br><a href='incluir.html'>Voltar</a>";
 
 
 
-?>
