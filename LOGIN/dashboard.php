@@ -54,35 +54,10 @@ $resultado = mysqli_query($conexao, $sql);
     </style>
 </head>
 <body>
-    <h1 class="welcome">Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</h1>
 
-    <div class="menu">
-        <a href="dashboard.php">Todos</a>
-        <a href="dashboard.php?tipo=Moda">Moda</a>
-        <a href="dashboard.php?tipo=Acessorios">Acessórios</a>
-        <a href="dashboard.php?tipo=Informatica">Informática</a>
-        <a href="dashboard.php?tipo=Esporte">Artigos Esportivos</a>
-    </div>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Preço Unitário</th>
-            <th>Tipo</th>
-        </tr>
-        <?php while ($produto = mysqli_fetch_assoc($resultado)) { ?>
-            <tr>
-                <td><?php echo $produto['id_produto']; ?></td>
-                <td><?php echo htmlspecialchars($produto['produto']); ?></td>
-                <td><?php echo $produto['quantidade']; ?></td>
-                <td>R$ <?php echo number_format($produto['preco_unitario'], 2, ',', '.'); ?></td>
-                <td><?php echo htmlspecialchars($produto['tipo']); ?></td>
-            </tr>
-        <?php } ?>
-    </table>
-
+    <h1 class="welcome">Bem-vindo, <?php echo htmlspecialchars($nome_usuario); ?>!</h1>
+    <p>Você está na área protegida do sistema.</p>
+    
     <a href="logout.php" class="logout">Sair</a>
 </body>
 </html>

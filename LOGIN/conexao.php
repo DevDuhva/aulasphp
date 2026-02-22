@@ -3,7 +3,7 @@
 $servidor = "localhost"; // Geralmente localhost
 $usuario_db = "root";    // Usuário do seu banco de dados
 $senha_db = "";          // Senha do seu banco de dados
-$banco = "empresa";      // Nome do banco de dados
+$banco = "cadastro_usuarios";      // Nome do banco de dados
 
 // Cria a conexão
 $conexao = mysqli_connect($servidor, $usuario_db, $senha_db, $banco);
